@@ -59,16 +59,16 @@ const HeroScene = () => {
     <div className="absolute inset-0 z-0">
       <Canvas camera={{ position: [0, 0, 6], fov: 60 }}>
         <ambientLight intensity={0.3} />
-        <pointLight position={[5, 5, 5]} intensity={0.8} color="#7c5cfc" />
-        <pointLight position={[-5, -5, 5]} intensity={0.5} color="#38bdf8" />
+        <pointLight position={[5, 5, 5]} intensity={0.8} color="#22c55e" />
+        <pointLight position={[-5, -5, 5]} intensity={0.5} color="#10b981" />
 
-        <FloatingBox position={[2.5, 1.5, 0]} color="#7c5cfc" speed={0.8} />
-        <FloatingBox position={[-2.8, -1, 0.5]} color="#38bdf8" speed={1.2} />
-        <FloatingSphere position={[3, -1.5, -1]} color="#a855f7" />
-        <FloatingSphere position={[-2, 2, -0.5]} color="#7c5cfc" />
-        <FloatingTorus position={[0, 2.5, -1]} color="#38bdf8" />
-        <FloatingTorus position={[-3, 0, 0]} color="#a855f7" />
-        <FloatingBox position={[1, -2.5, 0.5]} color="#a855f7" speed={0.6} />
+        <FloatingBox position={[2.5, 1.5, 0]} color="#22c55e" speed={0.8} />
+        <FloatingBox position={[-2.8, -1, 0.5]} color="#10b981" speed={1.2} />
+        <FloatingSphere position={[3, -1.5, -1]} color="#16a34a" />
+        <FloatingSphere position={[-2, 2, -0.5]} color="#22c55e" />
+        <FloatingTorus position={[0, 2.5, -1]} color="#10b981" />
+        <FloatingTorus position={[-3, 0, 0]} color="#16a34a" />
+        <FloatingBox position={[1, -2.5, 0.5]} color="#15803d" speed={0.6} />
       </Canvas>
     </div>
   );
