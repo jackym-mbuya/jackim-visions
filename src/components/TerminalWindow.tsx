@@ -5,9 +5,9 @@ const codeLines = [
   "$ who am i",
   "> jackim_mbuya",
   "$ cat skills.json",
-  '> { "frontend": ["React", "TypeScript"] }',
-  '> { "backend": ["Node.js", "Express"] }',
-  '> { "db": ["MongoDB", "MySQL"] }',
+  '> frontend: ["React", "TypeScript"] ',
+  '> backend: ["Node.js", "Express"] ',
+  '> db: ["MongoDB", "MySQL"] }',
   "$ git status",
   "> all systems operational ✓",
  
