@@ -25,8 +25,10 @@ const HeroSection = () => {
       {/* 3D Scene */}
       <HeroScene />
 
-      {/* Terminal window */}
-      <TerminalWindow />
+      {/* Terminal window - desktop (absolute) */}
+      <div className="hidden lg:block">
+        <TerminalWindow />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center lg:text-left lg:ml-[8%]">
@@ -34,6 +36,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="pt-20 lg:pt-0"
         >
           {/* Status badge */}
           <motion.div
@@ -83,23 +86,33 @@ const HeroSection = () => {
           >
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:shadow-[0_0_30px_hsla(142,70%,45%,0.4)] transition-all duration-300"
+              className="group relative inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold overflow-hidden"
             >
-              View Projects <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <span className="relative z-10 flex items-center gap-2">
+                View Projects <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary via-emerald-500 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 shadow-[0_0_30px_hsla(142,70%,45%,0.4)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary/50 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_hsla(142,70%,45%,0.2)]"
             >
               Contact Me <MessageCircle size={16} />
             </a>
             <a
-              href="#"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all duration-300"
+              href="/Jackim_Mbuya_CV.pdf"
+              download
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_20px_hsla(142,70%,45%,0.15)]"
             >
               Download CV <Download size={16} />
             </a>
           </motion.div>
+
+          {/* Mobile terminal inline */}
+          <div className="lg:hidden mt-8">
+            <TerminalWindow isMobile />
+          </div>
         </motion.div>
       </div>
 

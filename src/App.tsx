@@ -13,6 +13,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <div className="noise-overlay" />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

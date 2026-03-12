@@ -64,6 +64,11 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Space Grotesk', sans-serif;
+    background: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, hsla(142, 70%, 45%, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 100% 50%, hsla(160, 60%, 40%, 0.05) 0%, transparent 50%),
+      hsl(0, 0%, 4%);
+    background-attachment: fixed;
   }
 
   html {
@@ -93,6 +98,25 @@
 
   .skill-card {
     @apply glass-card rounded-xl p-6 transition-all duration-300;
+    position: relative;
+  }
+
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(142, 70%, 45%), hsl(160, 60%, 40%));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .skill-card:hover::before {
+    opacity: 1;
   }
 
   .skill-card:hover {
@@ -142,6 +166,24 @@
   .glow-text {
     text-shadow: 0 0 20px hsla(142, 70%, 45%, 0.3), 0 0 40px hsla(142, 70%, 45%, 0.1);
   }
+
+  .btn-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, hsla(142, 70%, 45%, 0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+
+  .btn-glow:hover::before {
+    transform: translateX(100%);
+  }
 }
 
 @layer utilities {
@@ -159,6 +201,23 @@
 
   .animate-scan {
     animation: scan 4s linear infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsla(0, 0%, 8%, 0) 0%,
+      hsla(142, 70%, 45%, 0.1) 50%,
+      hsla(0, 0%, 8%, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .animate-border-glow {
+    background: linear-gradient(90deg, hsl(142, 70%, 45%), hsl(160, 60%, 40%), hsl(142, 70%, 45%));
+    background-size: 200% 100%;
+    animation: border-glow 3s linear infinite;
   }
 }
 
@@ -180,6 +239,42 @@
 @keyframes scan {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100vh); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes border-glow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease forwards;
 }
 
 /* Custom scrollbar */
@@ -204,4 +299,17 @@
 ::selection {
   background: hsla(142, 70%, 45%, 0.3);
   color: hsl(120, 20%, 95%);
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }

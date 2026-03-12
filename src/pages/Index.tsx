@@ -8,6 +8,7 @@ import ProjectsSection from "../components/sections/ProjectsSection";
 import ServicesSection from "../components/sections/ServicesSection";
 import ExperienceSection from "../components/sections/ExperienceSection";
 import ContactSection from "../components/sections/ContactSection";
+import TechMarquee from "../components/TechMarquee";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <FloatingOrbs />
       <Navbar />
       <HeroSection />
+      <TechMarquee />
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />

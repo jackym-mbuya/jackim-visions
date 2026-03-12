@@ -96,10 +96,10 @@ const ProjectsSection = () => {
 
                 {/* Actions */}
                 <div className="flex items-center gap-3">
-                  <a href="#" className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline">
+                  <a href="https://github.com/jackym-mbuya" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline">
                     <Github size={14} /> Code
                   </a>
-                  <a href="#" className="inline-flex items-center gap-1.5 text-sm text-accent hover:underline">
+                  <a href="https://github.com/jackym-mbuya" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-accent hover:underline">
                     <ExternalLink size={14} /> Live Demo
                   </a>
                 </div>

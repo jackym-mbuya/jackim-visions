@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo + tagline */}
           <div className="text-center md:text-left">
-            <a href="#home" className="text-2xl font-bold gradient-text">JM</a>
+            <a href="#home" className="text-2xl font-bold gradient-text">&lt;JM&gt;</a>
             <p className="text-xs text-muted-foreground mt-1">Building the future, one line at a time.</p>
           </div>
 

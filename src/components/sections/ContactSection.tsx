@@ -108,7 +108,7 @@ const ContactSection = () => {
 
             <div className="flex gap-4">
               <a
-                href="https://wa.me/"
+                href="https://wa.me/254757792029"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg glass-card text-sm font-medium hover:bg-primary/10 transition-colors"
@@ -116,7 +116,7 @@ const ContactSection = () => {
                 <MessageCircle size={16} className="text-primary" /> WhatsApp
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/jackym-mbuya"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg glass-card text-sm font-medium hover:bg-primary/10 transition-colors"
