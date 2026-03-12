@@ -20,7 +20,7 @@ const FloatingOrbs = () => {
             height: orb.size,
             left: orb.x,
             top: orb.y,
-            background: `radial-gradient(circle, hsla(142, 70%, 45%, 0.06) 0%, transparent 70%)`,
+            background: `radial-gradient(circle, hsla(142, 70%, 45%, 0.15) 0%, transparent 70%)`,
             filter: "blur(60px)",
           }}
           animate={{

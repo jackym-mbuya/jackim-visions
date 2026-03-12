@@ -23,10 +23,10 @@ const MatrixRain = () => {
     const drops: number[] = Array(columns).fill(1).map(() => Math.random() * -100);
 
     const draw = () => {
-      ctx.fillStyle = "rgba(10, 10, 10, 0.05)";
+      ctx.fillStyle = "rgba(10, 10, 10, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "hsla(142, 70%, 45%, 0.15)";
+      ctx.fillStyle = "hsla(142, 70%, 45%, 0.4)";
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
@@ -50,7 +50,7 @@ const MatrixRain = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 z-0 pointer-events-none opacity-40"
+      className="absolute inset-0 z-0 pointer-events-none opacity-70"
     />
   );
 };

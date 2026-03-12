@@ -1,17 +1,39 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, MessageCircle, Github, Linkedin, MapPin, Mail } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: hook up form submission
-    alert("Message sent! (Demo)");
-    setForm({ name: "", email: "", message: "" });
+    setSending(true);
+    
+    try {
+      await emailjs.send(
+        "service_e25y4o9",
+        "template_j6el7ha",
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+          to_email: "jackimmbuya@gmail.com",
+        },
+        "13d9PIuuGgMSyGqTx"
+      );
+      setSent(true);
+      setForm({ name: "", email: "", message: "" });
+      setTimeout(() => setSent(false), 3000);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -71,9 +93,10 @@ const ContactSection = () => {
             </div>
             <button
               type="submit"
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
+              disabled={sending}
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
             >
-              Send Message <Send size={16} />
+              {sending ? "Sending..." : sent ? "Sent!" : "Send Message"} <Send size={16} />
             </button>
           </motion.form>
 
@@ -101,7 +124,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium">jackim@example.com</p>
+                  <p className="font-medium">jackimmbuya@gmail.com</p>
                 </div>
               </div>
             </div>
