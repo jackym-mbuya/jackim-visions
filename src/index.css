@@ -133,6 +133,15 @@
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsla(142, 70%, 45%, 0.3), transparent);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsla(142, 70%, 45%, 0.3), 0 0 40px hsla(142, 70%, 45%, 0.1);
+  }
 }
 
 @layer utilities {
@@ -146,6 +155,10 @@
 
   .animate-grid {
     animation: grid-move 20s linear infinite;
+  }
+
+  .animate-scan {
+    animation: scan 4s linear infinite;
   }
 }
 
@@ -162,4 +175,33 @@
 @keyframes grid-move {
   0% { transform: translateY(0); }
   100% { transform: translateY(-50px); }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(0, 0%, 4%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsla(142, 70%, 45%, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(142, 70%, 45%, 0.5);
+}
+
+/* Selection color */
+::selection {
+  background: hsla(142, 70%, 45%, 0.3);
+  color: hsl(120, 20%, 95%);
 }
